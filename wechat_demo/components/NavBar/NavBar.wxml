@@ -1,0 +1,10 @@
+<!--components/NavBar/NavBar.wxml-->
+<view>
+  <view class="recommendtitle">
+    <text class="recommendtitle1">{{title}}</text>
+    <view class="recommendbottomtitle">
+      <text>{{recommendtitle}}</text>
+      <text>查看更多</text>
+    </view>
+   </view>
+</view>
