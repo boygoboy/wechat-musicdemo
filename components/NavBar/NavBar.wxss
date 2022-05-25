@@ -1,0 +1,15 @@
+/* components/NavBar/NavBar.wxss */
+.recommendtitle1{
+  color: lightgray;
+  font-size: 32rpx;
+}
+.recommendbottomtitle{
+  margin-top: 20rpx;
+}
+.recommendbottomtitle text:nth-child(2){
+  float: right;
+  font-size: 28rpx;
+  border: 1rpx solid black;
+  border-radius: 20rpx;
+  padding: 8rpx 20rpx;
+}
