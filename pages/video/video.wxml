@@ -1,0 +1,19 @@
+<view class="topbanner">
+<image src="/static/images/logo.png"></image>
+<view>搜索商品</view>
+<image src="/static/images/video/video.jpg"></image>
+</view>
+<view class="dhblock">
+<scroll-view scroll-x enable-flex style="height: 60rpx;" class="dhscroll" scroll-into-view="{{'video'+avtiveTabId}}" scroll-with-animation>
+<view  wx:for="{{dhData}}" wx:key="id" bindtap="activeTab" id="{{'video'+item.id}}" class="scrollItem" data-id="{{item.id}}">
+<view class="{{avtiveTabId==item.id?'btmline':''}}">{{item.name}}</view>
+</view>
+</scroll-view>
+<scroll-view scroll-y enable-flex class="videoscroll"
+ refresher-enabled bindrefresherrefresh="handleScrollTop" bindscrolltolower="handleScrollBottom" refresher-triggered="{{isTriggered}}">
+<view wx:for="{{videoList}}" wx:key="id" class="videoitem">
+  <video src="{{item.data.urlInfo.url}}" 	bindplay="handlePlay" id="{{item.data.vid}}" poster="{{item.data.coverUrl}}" wx:if="{{item.data.vid==videoId}}" 	object-fit="fill" 	bindtimeupdate="handleTimeUpdate" 	bindended="handleEnded"></video>
+  <image src="{{item.data.coverUrl}}" bindtap="handlePlay" id="{{item.data.vid}}" wx:else></image>
+</view>
+</scroll-view>
+</view>

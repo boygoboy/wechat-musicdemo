@@ -3,7 +3,8 @@ import request from '../../utils/request'
 Page({
    data:{
        bannerList:[],
-       recommendList:[]
+       recommendList:[],
+       topList:[]
    },
   /**
    * 页面的初始数据
@@ -23,6 +24,16 @@ Page({
      this.setData({
           recommendList:recommendList.result
      })
+     let index=0
+     let resultList=[]
+     while(index<5){
+      let resultTopData=await request('/top/list',{idx:index++},'GET')
+      resultList.push({name:resultTopData.playlist.name,topitemList:resultTopData.playlist.tracks.slice(0,3)})
+      this.setData({
+        topList:resultList
+      })
+     }
+     console.log(this.data.topList)
   },
 
   /**

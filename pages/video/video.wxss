@@ -1,0 +1,46 @@
+/* pages/video/video.wxss */
+.topbanner{
+  display: flex;
+  margin: 10rpx 0;
+}
+.topbanner image{
+  width: 80rpx;
+  height: 80rpx;
+ margin: 0 10rpx;
+}
+.topbanner view{
+  flex: 1;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  border: 1rpx solid lightgray;
+  color: red;
+}
+.dhblock{
+
+}
+.dhscroll{
+display: flex;
+  white-space: nowrap;
+}
+.scrollItem{
+  padding: 0 20rpx;
+}
+
+.btmline{
+  border-bottom: 1rpx solid red;
+}
+.videoitem{
+  padding: 8rpx 10rpx;
+}
+.videoitem video{
+  width: 100%;
+  border-radius: 10rpx;
+}
+.videoitem image{
+  width: 100%;
+  border-radius: 10rpx;
+}
+.videoscroll{
+  height: calc(100vh - 152rpx);
+}

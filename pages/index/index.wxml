@@ -40,75 +40,13 @@
   <view class="topcontainer">
     <NavBar title="排行榜" recommendtitle="热歌风向标"></NavBar>
     <swiper class="topswipcontainer" next-margin="50rpx" previous-margin="50rpx">
-      <swiper-item>
-        <view class="toptitle">云音乐热歌榜</view>
-        <view class="swiptopitem">
+      <swiper-item wx:for="{{topList}}" wx:key="name">
+        <view class="toptitle">{{item.name}}</view>
+        <view class="swiptopitem" wx:for="{{item.topitemList}}" wx:key="id" wx:for-item="topitem" wx:for-index="sn">
           <view>
-            <image src="/static/images/nvsheng.jpg"></image>
-            <text>1</text>
-            <text>光辉岁月</text>
-          </view>
-        </view>
-        <view class="swiptopitem">
-          <view>
-            <image src="/static/images/nvsheng.jpg"></image>
-            <text>1</text>
-            <text>光辉岁月</text>
-          </view>
-        </view>
-        <view class="swiptopitem">
-          <view>
-            <image src="/static/images/nvsheng.jpg"></image>
-            <text>1</text>
-            <text>光辉岁月</text>
-          </view>
-        </view>
-      </swiper-item>
-      <swiper-item>
-        <view class="toptitle">云音乐热歌榜</view>
-        <view class="swiptopitem">
-          <view>
-            <image src="/static/images/nvsheng.jpg"></image>
-            <text>1</text>
-            <text>光辉岁月</text>
-          </view>
-        </view>
-        <view class="swiptopitem">
-          <view>
-            <image src="/static/images/nvsheng.jpg"></image>
-            <text>1</text>
-            <text>光辉岁月</text>
-          </view>
-        </view>
-        <view class="swiptopitem">
-          <view>
-            <image src="/static/images/nvsheng.jpg"></image>
-            <text>1</text>
-            <text>光辉岁月</text>
-          </view>
-        </view>
-      </swiper-item>
-      <swiper-item>
-        <view class="toptitle">云音乐热歌榜</view>
-        <view class="swiptopitem">
-          <view>
-            <image src="/static/images/nvsheng.jpg"></image>
-            <text>1</text>
-            <text>光辉岁月</text>
-          </view>
-        </view>
-        <view class="swiptopitem">
-          <view>
-            <image src="/static/images/nvsheng.jpg"></image>
-            <text>1</text>
-            <text>光辉岁月</text>
-          </view>
-        </view>
-        <view class="swiptopitem">
-          <view>
-            <image src="/static/images/nvsheng.jpg"></image>
-            <text>1</text>
-            <text>光辉岁月</text>
+            <image src="{{topitem.al.picUrl}}"></image>
+            <text>{{sn+1}}</text>
+            <text>{{topitem.name}}</text>
           </view>
         </view>
       </swiper-item>
