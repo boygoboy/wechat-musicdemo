@@ -14,6 +14,7 @@
 <view wx:for="{{videoList}}" wx:key="id" class="videoitem">
   <video src="{{item.data.urlInfo.url}}" 	bindplay="handlePlay" id="{{item.data.vid}}" poster="{{item.data.coverUrl}}" wx:if="{{item.data.vid==videoId}}" 	object-fit="fill" 	bindtimeupdate="handleTimeUpdate" 	bindended="handleEnded"></video>
   <image src="{{item.data.coverUrl}}" bindtap="handlePlay" id="{{item.data.vid}}" wx:else></image>
+  <button type="primary" open-type="share">转发</button>
 </view>
 </scroll-view>
 </view>

@@ -1,0 +1,74 @@
+.header{
+  width: 100%;
+  height: 300rpx;
+  position: relative;
+}
+.header image{
+  width: 100%;
+  height: 100%;
+}
+.datecontent{
+  width: 200rpx;
+  height: 100rpx;
+text-align: center;
+line-height: 100rpx;
+position: absolute;
+top: 100rpx;
+left: 300rpx;
+color: white;
+}
+.content{
+  padding: 0 15rpx;
+  border-radius: 20rpx;
+  position: relative;
+  top: -10rpx;
+  background-color: white;
+}
+.content-title{
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  position: relative;
+}
+.content-title text:nth-child(1){
+position: absolute;
+left: 0;
+}
+.content-title text:nth-child(2){
+  position: absolute;
+  right:0;
+}
+.songcontent{
+ 
+}
+.scrollitem{
+  display: flex;
+  height: 100rpx;
+  position: relative;
+  margin-bottom: 20rpx;
+}
+.scrollitem image{
+  width: 100rpx;
+  height: 100rpx;
+}
+.songitem{
+  line-height: 50rpx;
+  display: flex;
+  flex-direction: column;
+  margin-left: 10rpx;
+  max-width: 400rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.genduoicon{
+  position: absolute;
+  right: 0;
+  width: 60rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: right;
+}
+.scrollcontent{
+  height: calc(100vh - 380rpx);
+}

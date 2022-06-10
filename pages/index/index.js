@@ -9,6 +9,11 @@ Page({
   /**
    * 页面的初始数据
    */
+  openRecommendSong(){
+  wx.navigateTo({
+    url:'/pages/recommendSong/recommendSong'
+  })
+  },
 
   /**
    * 生命周期函数--监听页面加载

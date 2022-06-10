@@ -176,6 +176,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+   return {
+    title:'自定义标题',
+    path:'/pages/video/video',
+    imageUrl:'/static/images/nvsheng.jpg'
+   }
   }
 })
