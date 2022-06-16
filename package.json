@@ -1,0 +1,24 @@
+{
+  "name": "wechat_demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/boygoboy/wechat-musicdemo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/boygoboy/wechat-musicdemo/issues"
+  },
+  "homepage": "https://github.com/boygoboy/wechat-musicdemo#readme",
+  "dependencies": {
+    "moment": "^2.29.3",
+    "pubsub-js": "^1.9.4"
+  }
+}

@@ -1,4 +1,5 @@
 import request from '../../utils/request'
+import PubSub from 'pubsub-js'
 Page({
 
   /**
@@ -7,7 +8,8 @@ Page({
   data: {
   month:null,
   day:null,
-  recommendList:[]
+  recommendList:[],
+  index:0
   },
   async getEverydaySong(){
     let cookies=wx.getStorageSync('cookies')
@@ -33,6 +35,37 @@ Page({
   wx.navigateTo({
     url:`/pages/songDetail/sonfDetail?musicId=${musicId}`
   })
+  this.setData({
+    index:e.currentTarget.dataset.index
+  })
+  let switchSong = PubSub.subscribe('switchSongCallback', (msg,data)=>{
+    console.log(msg,data)
+    let {index}=this.data
+    if(data=='last'){
+      index--
+      if(index<0){
+      index=0
+      wx.showToast({
+        title: '已经是第一首歌！',
+      })
+      }
+    }
+    if(data=='next'){
+      index++
+      if(index>this.data.recommendList.length){
+        index=this.data.recommendList.length-1
+        wx.showToast({
+          title: '已经是最后一首歌！',
+        })
+      }
+    }
+    this.setData({
+      index
+    })
+    let musicid=this.data.recommendList[index].id
+    PubSub.publish('sendMusicId', musicid);
+  });
+
   },
   /**
    * 生命周期函数--监听页面加载

@@ -1,4 +1,6 @@
 import request from '../../utils/request'
+import PubSub from 'pubsub-js'
+import moment from 'moment'
 Page({
 
   /**
@@ -7,7 +9,10 @@ Page({
   data: {
   isPlay:false,
   sonfInfo:[],
-  musicId:null
+  musicId:null,
+  currentTime:'00:00',
+  totalTime:'00:00',
+  barwidth:0
   },
   handlePlay(){
   this.setData({
@@ -30,6 +35,9 @@ Page({
   })
   this.BackgroundAudioManager.title=this.data.sonfInfo[0].al.name
    console.log(this.data.sonfInfo)
+   this.setData({
+     totalTime:moment(this.data.sonfInfo[0].dt).format('mm:ss')
+   })
   },
   async getMusicAudio(musicId){
     let audio=await request('/song/url',{id:musicId})
@@ -67,6 +75,30 @@ Page({
         isPlay:false
       })
     })
+    this.BackgroundAudioManager.onTimeUpdate(()=>{
+      this.setData({
+        currentTime:moment(this.BackgroundAudioManager.currentTime*1000).format('mm:ss')
+      })
+      let barwidth=this.BackgroundAudioManager.currentTime/this.BackgroundAudioManager.duration*460
+      this.setData({
+        barwidth
+      })
+    })
+    this.BackgroundAudioManager.onEnded(()=>{
+      PubSub.subscribe('sendMusicId', (msg,data)=>{
+        console.log(msg,data)
+        this.getSongDetail(data)
+        this.BackgroundAudioManager.stop()
+        this.getMusicAudio(data)
+        PubSub.unsubscribe('sendMusicId')
+      });
+      PubSub.publish('switchSongCallback', 'next');
+      this.setData({
+        barwidth:0,
+        totalTime:'00:00',
+        currentTime:'00:00'
+      })
+    })
   },
   checkIsPlay(){
   let appInstance=getApp()
@@ -77,7 +109,18 @@ Page({
      })
    }
   },
-
+  switchSong(e){
+  let type=e.currentTarget.id
+  console.log(type)
+  PubSub.subscribe('sendMusicId', (msg,data)=>{
+    console.log(msg,data)
+    this.getSongDetail(data)
+    this.BackgroundAudioManager.stop()
+    this.getMusicAudio(data)
+    PubSub.unsubscribe('sendMusicId')
+  });
+  PubSub.publish('switchSongCallback', type);
+  },
   /**
    * 生命周期函数--监听页面加载
    */

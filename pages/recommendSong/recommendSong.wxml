@@ -13,7 +13,7 @@
 <view class="songcontent">
 <scroll-view scroll-y enable-flex class="scrollcontent">
 <view class="scrollitem" wx:for="{{recommendList}}" wx:key="id">
-<image src="{{item.album.picUrl}}" bindtap="openSongDetail" data-musicId="{{item.id}}"></image>
+<image src="{{item.album.picUrl}}" bindtap="openSongDetail" data-musicId="{{item.id}}" data-index="{{index}}"></image>
 <view class="songitem">
 <text>{{item.album.name}}</text>
 <text>{{item.artists[0].name}}</text>

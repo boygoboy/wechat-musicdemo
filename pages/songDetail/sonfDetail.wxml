@@ -8,11 +8,20 @@
   <image src="../../static/images/song/disc.png" class="disc"></image>
   <image src="{{sonfInfo[0].al.picUrl}}" class="disc-son"></image>
 </view>
+<view class="progress-box">
+<text>{{currentTime}}</text>
+<view class="progress">
+<view class="red-progress" style="width:{{barwidth +'rpx'}}">
+<view class="circle"></view>
+</view>
+</view>
+<text>{{totalTime}}</text>
+</view>
 <view class="musicControl">
 <text class="iconfont icon-iconsMusicyemianbofangmoshiShuffle"></text>
-<text class="iconfont icon-shangyishou"></text>
+<text class="iconfont icon-shangyishou" bindtap="switchSong" id="last"></text>
 <text class="iconfont {{isPlay?'icon-zanting':'icon-bofang'}} big" bindtap="handlePlay"></text>
-<text class="iconfont icon-next"></text>
+<text class="iconfont icon-next" bindtap="switchSong" id="next"></text>
 <text class="iconfont icon-iconsMusicyemianbofangmoshiPlayList"></text>
 </view>
 </view>
